@@ -7,10 +7,10 @@ body {
 
 header {
     background-color: white;
-    position: fixed; /* Делаем шапку фиксированной */
-    top: 0; /* Привязываем к верхней части окна */
-    width: 100%; /* Задаем ширину в 100% */
-    z-index: 1000; /* Устанавливаем z-index, чтобы шапка была поверх других элементов */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
     border-bottom: 1px solid lightgray;
 }
 
@@ -60,6 +60,7 @@ nav ul li a {
     font-style: normal;
     font-variant: normal;
     text-transform: none;
+    transition: s;
 }
 
 nav ul li .dropbtn::after {
@@ -67,22 +68,18 @@ nav ul li .dropbtn::after {
     font-size: 0.7em;
 }
 
-nav ul li a:hover, .dropdown-content a:hover {
-    color: blue;
-}
-
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: black;
-    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    background-color: white;
+    border-radius: 5px;
     z-index: 1;
-    top: 100%;
+    top: 50px;
     left: 0;
 }
 
 .dropdown-content a {
-    color: white;
+    color: #C0C0C0;
     padding: 10px 20px;
     text-decoration: none;
     display: block;
@@ -95,7 +92,7 @@ nav ul li a:hover, .dropdown-content a:hover {
 
 main {
     text-align: center;
-    padding-top: 100px; /* Увеличиваем отступ сверху, чтобы компенсировать фиксированное меню */
+    padding-top: 100px;
 }
 
 section {
@@ -108,17 +105,15 @@ section {
 
 #home {
     align-items: unset;
-    background-color: white;
     position: relative;
 }
 
 #home-anchor {
     display: block;
     position: relative;
-    top: -100px; /* Отступ, равный высоте меню */
+    top: -100px;
     visibility: hidden;
 }
-
 
 .image-container img {
     border-radius: 50px;
@@ -126,6 +121,7 @@ section {
     height: 83%;
     margin-top: 15px;
 }
+
 .image-container::after {
     content: "";
     position: absolute;
@@ -138,123 +134,109 @@ section {
     pointer-events: none;
 }
 
+.overlay {
+    position: absolute;
+    top: 40%;
+    left: 38%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    color: white;
+    z-index: 1;
+}
+
+.main-title {
+    font-size: 3em;
+    margin: 0.5em 0;
+}
+
+.subtitle {
+    font-size: 2em;
+    margin: 0.5em 0;
+}
+
+.cta-button {
+    padding: 1em 2em;
+    font-size: 2em;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    cursor: pointer;
+    margin-top: 1em;
+    transition-duration: 1s;
+}
+
+.cta-button:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+    transition-duration: 1s;
+}
+
+.cta-button a {
+    text-decoration: none;
+    color: white;
+}
+
 #map-section {
-    background-color: #343845;
-    position: relative; /* Чтобы всплывающее окно было позиционировано относительно секции */
+    position: relative;
     height: 100vh;
 }
 
-.map-placeholder {
-    width: 100%; /* Сделать картинку во всю секцию */
-    height: 100%;
-    overflow: hidden;
-    position: relative;
-}
-
-.map-placeholder img {
-    width: 100%;
-    height: 100%;
+.map-bg {
+    width: 1500px;
+    max-height: 800px;
     object-fit: cover;
     border-radius: 15px;
+    margin-top: 50px;
 }
 
-.overlay-button {
-    color: white;
+.button-image {
     position: absolute;
-    top: 32%;
-    right: 28%;
-    background-color: transparent;
-    border: none;
-    padding: 10px 20px;
+    bottom: 277px;
+    right: 435px;
+    width: 780px;  /* Установите нужную ширину */
+    height: auto;
     cursor: pointer;
-    font-size: 1em;
-    font-size: 38px;
+    scale: 0.1;
+
 }
-.overlay-button:hover {
-    position: absolute;
-    top: 31%;
-    right: 26%;
-    background-color: transparent;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    font-size: 1em;
-    font-size: 48px;
-    color: #fff;
-    text-shadow:
-            0 0 7px #fff,
-            0 0 10px #fff,
-            0 0 21px #fff,
-            0 0 42px #0fa,
-            0 0 82px #0fa,
-            0 0 92px #0fa,
-            0 0 102px #0fa,
-            0 0 151px #0fa;
+
+.popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    max-width: 600px;
+    background-color: white;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
 }
-#popup {
-    position: absolute;
-    top: 8%;
-    right: -55%; /* Начальное положение за пределами экрана */
-    width: 40%;
-    height: 80%;
-    background-color: rgba(255, 255, 255, 0.9);
-    transition: right 0.3s;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+
+.popup-content {
     padding: 20px;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
-}
-
-#popup.show {
-    right: 0; /* Когда окно открыто, оно сдвигается на экран */
+    text-align: center;
 }
 
 .close-button {
     position: absolute;
     top: 10px;
     right: 10px;
-    background-color: transparent;
+    background: none;
     border: none;
-    font-size: 4em;
+    font-size: 1.5em;
     cursor: pointer;
 }
 
 .close-button:hover {
-    color: #000;
+    color: red;
 }
-
-.popup-image-placeholder {
-    width: 80%;
-    height: 200px;
-    background-color: #ddd;
-    margin-bottom: 20px;
-}
-
-.download-button {
-    padding: 10px 20px;
-    background-color: #000;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    font-size: 1em;
-}
-
-.download-button:hover {
-    background-color: #555;
-}
-
-#popup.show {
-    right: 0; /* Когда окно открыто, оно сдвигается на экран */
-}
-
 
 #inside-section {
-    background-color: #343845;
     flex-direction: column;
     padding: 20px;
-
 }
 
 #inside-form {
@@ -329,7 +311,6 @@ section {
     background-color: #555;
 }
 
-
 #analytics-section {
     background-color: #343845;
     flex-direction: column;
@@ -402,9 +383,6 @@ section {
     background-color: rgba(0,0,0,0.8);
 }
 
-
-
-
 footer {
     background-color: #343845;
     color: white;
@@ -419,4 +397,3 @@ footer h2 {
 footer p {
     margin: 10px 0 0;
 }
-
