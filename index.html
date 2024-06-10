@@ -6,54 +6,6 @@
     <title>Real Estate of Dubai</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<script>
-    function togglePopup() {
-        let popup = document.getElementById("popup");
-        popup.classList.toggle("show");
-    }
-    function calculate() {
-        // Логика расчета будет добавлена позже
-        let popup = document.getElementById("calculation-popup");
-        popup.style.display = "flex";
-    }
-
-    function closePopup() {
-        let popup = document.getElementById("calculation-popup");
-        popup.style.display = "none";
-    }
-
-    let slideIndex = 0;
-
-    function plusSlides(n) {
-        slideIndex += n;
-        showSlides();
-    }
-
-    function showSlides() {
-        const slides = document.getElementsByClassName("slide");
-        const totalSlides = slides.length;
-        const slidesToShow = 3;
-        const maxIndex = totalSlides - slidesToShow;
-
-        if (slideIndex > maxIndex) {
-            slideIndex = 0;
-        } else if (slideIndex < 0) {
-            slideIndex = maxIndex;
-        }
-
-        for (let i = 0; i < totalSlides; i++) {
-            slides[i].style.display = "none";
-        }
-
-        for (let i = slideIndex; i < slideIndex + slidesToShow; i++) {
-            slides[i].style.display = "flex";
-        }
-    }
-
-    // Initialize the slider by showing the first set of slides
-    showSlides();
-</script>
-
 <body>
 <header>
     <nav>
@@ -62,7 +14,7 @@
             <h1 class="site-title">Oasis Analytics</h1>
         </div>
         <ul>
-            <li><a href="#home">HOME</a></li>
+            <li><a href="#home-anchor">HOME</a></li>
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">SERVICES</a>
                 <div class="dropdown-content">
@@ -78,28 +30,17 @@
     </nav>
 </header>
 
-
-
 <main>
+    <a id="home-anchor"></a>
     <section id="home">
-        <div class="diagonal-image-container">
+        <div class="image-container">
             <img src="images/Home%20Page.jpg" alt="Photo" class="diagonal-image">
         </div>
-        <h1>
-            <span class="first-line">REAL ESTATE</span>
-            <span class="second-line">OF DUBAI</span>
-        </h1>
     </section>
     <section id="map-section">
         <div class="map-placeholder">
             <img src="images/Даунтаун.jpg" alt="Map Placeholder">
             <button class="overlay-button" onclick="togglePopup()">ДаунТаун</button>
-        </div>
-        <div id="popup" class="popup">
-            <button class="close-button" onclick="togglePopup()">×</button>
-            <h2>Report for DOWNTOWN</h2>
-            <div class="popup-image-placeholder">Заглушка для картинки</div>
-            <button class="download-button">Скачать</button>
         </div>
     </section>
 
@@ -167,14 +108,12 @@
             <button class="next" onclick="plusSlides(1)">&#10095;</button>
         </div>
     </section>
-
-
-
 </main>
 
 <footer id="contact-section">
     <h2>Contact Us</h2>
     <p>Contact information or form can go here.</p>
 </footer>
+<script src="scripts.js"></script>
 </body>
 </html>
