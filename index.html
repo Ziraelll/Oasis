@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate of Dubai</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<script>
+    function togglePopup() {
+        let popup = document.getElementById("popup");
+        popup.classList.toggle("show");
+    }
+    function calculate() {
+        // Логика расчета будет добавлена позже
+        let popup = document.getElementById("calculation-popup");
+        popup.style.display = "flex";
+    }
+
+    function closePopup() {
+        let popup = document.getElementById("calculation-popup");
+        popup.style.display = "none";
+    }
+
+    let slideIndex = 0;
+
+    function plusSlides(n) {
+        slideIndex += n;
+        showSlides();
+    }
+
+    function showSlides() {
+        const slides = document.getElementsByClassName("slide");
+        const totalSlides = slides.length;
+        const slidesToShow = 3;
+        const maxIndex = totalSlides - slidesToShow;
+
+        if (slideIndex > maxIndex) {
+            slideIndex = 0;
+        } else if (slideIndex < 0) {
+            slideIndex = maxIndex;
+        }
+
+        for (let i = 0; i < totalSlides; i++) {
+            slides[i].style.display = "none";
+        }
+
+        for (let i = slideIndex; i < slideIndex + slidesToShow; i++) {
+            slides[i].style.display = "flex";
+        }
+    }
+
+    // Initialize the slider by showing the first set of slides
+    showSlides();
+</script>
+
+<body>
+<header>
+    <nav>
+        <div class="logo-title">
+            <img src="images/logo.png" alt="Logo" class="logo">
+            <h1 class="site-title">Oasis Analytics</h1>
+        </div>
+        <ul>
+            <li><a href="#home">HOME</a></li>
+            <li class="dropdown">
+                <a href="javascript:void(0)" class="dropbtn">SERVICES</a>
+                <div class="dropdown-content">
+                    <a href="#map-section">MAP</a>
+                    <a href="#inside-section">INSIDE</a>
+                    <a href="#analytics-section">ANALYTICS</a>
+                </div>
+            </li>
+            <li><a href="#reports">Reports</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#contact-section">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+
+<main>
+    <section id="home">
+        <div class="diagonal-image-container">
+            <img src="images/Home%20Page.jpg" alt="Photo" class="diagonal-image">
+        </div>
+        <h1>
+            <span class="first-line">REAL ESTATE</span>
+            <span class="second-line">OF DUBAI</span>
+        </h1>
+    </section>
+    <section id="map-section">
+        <div class="map-placeholder">
+            <img src="images/Даунтаун.jpg" alt="Map Placeholder">
+            <button class="overlay-button" onclick="togglePopup()">ДаунТаун</button>
+        </div>
+        <div id="popup" class="popup">
+            <button class="close-button" onclick="togglePopup()">×</button>
+            <h2>Report for DOWNTOWN</h2>
+            <div class="popup-image-placeholder">Заглушка для картинки</div>
+            <button class="download-button">Скачать</button>
+        </div>
+    </section>
+
+
+    <section id="inside-section">
+
+        <form id="inside-form">
+            <h2>Inside</h2>
+            <label for="risk-profile">Risk Profile:</label>
+            <div id="risk-profile">
+                <label><input type="radio" name="risk" value="low"> Low</label>
+                <label><input type="radio" name="risk" value="medium"> Medium</label>
+                <label><input type="radio" name="risk" value="high"> High</label>
+            </div>
+
+            <label for="desired-return">Desired Return:</label>
+            <div id="desired-return">
+                <label><input type="radio" name="return" value="low"> Low</label>
+                <label><input type="radio" name="return" value="medium"> Medium</label>
+                <label><input type="radio" name="return" value="high"> High</label>
+            </div>
+
+            <label for="initial-amount">Initial Amount:</label>
+            <input type="text" id="initial-amount" name="initial-amount" placeholder="$">
+
+            <label for="amount-of-year">Amount of Years:</label>
+            <input type="text" id="amount-of-year" name="amount-of-year" placeholder="">
+
+            <button type="button" onclick="calculate()">Calculate</button>
+        </form>
+
+        <div id="calculation-popup" class="popup">
+            <h2>Calculations</h2>
+            <button onclick="closePopup()">Close</button>
+        </div>
+    </section>
+
+    <section id="analytics-section">
+        <h2>Analytics for Q1</h2>
+        <div class="slider-container">
+            <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
+            <div class="slider">
+                <div class="slide">
+                    <img src="images/Dubai_map2.png" alt="Analytics Image 1">
+                    <p>Description for Image 1</p>
+                </div>
+                <div class="slide">
+                    <img src="images/Dubai_map.jpg" alt="Analytics Image 2">
+                    <p>Description for Image 2</p>
+                </div>
+                <div class="slide">
+                    <img src="images/DUBAI%20home.jpg" alt="Analytics Image 3">
+                    <p>Description for Image 3</p>
+                </div>
+                <div class="slide">
+                    <img src="images/DUBAI%20home.jpg" alt="Analytics Image 3">
+                    <p>Description for Image 4</p>
+                </div>
+                <div class="slide">
+                    <img src="images/DUBAI%20home.jpg" alt="Analytics Image 3">
+                    <p>Description for Image 5</p>
+                </div>
+                <!-- Добавьте больше слайдов по мере необходимости -->
+            </div>
+            <button class="next" onclick="plusSlides(1)">&#10095;</button>
+        </div>
+    </section>
+
+
+
+</main>
+
+<footer id="contact-section">
+    <h2>Contact Us</h2>
+    <p>Contact information or form can go here.</p>
+</footer>
+</body>
+</html>
