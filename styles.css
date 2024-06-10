@@ -135,7 +135,7 @@ section {
     bottom: 166px;
     background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
     border-radius: 50px;
-    pointer-events: none; /* Чтобы затемнение не мешало взаимодействию с изображением */
+    pointer-events: none;
 }
 
 #map-section {
