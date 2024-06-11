@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -76,6 +78,7 @@ nav ul li .dropbtn::after {
     z-index: 1;
     top: 50px;
     left: 0;
+    border: 1px solid #000;
 }
 
 .dropdown-content a {
@@ -120,6 +123,7 @@ section {
     max-width: 100%;
     height: 83%;
     margin-top: 15px;
+
 }
 
 .image-container::after {
@@ -181,6 +185,7 @@ section {
     height: 100vh;
 }
 .map-placeholder{
+
 }
 .map-bg {
     width: 1500px;
@@ -306,14 +311,33 @@ section {
     padding: 20px;
 }
 
+.form-window{
+    width: 1500px;
+    height: 750px;
+    /*object-fit: cover;*/
+    border-radius: 15px;
+    margin-top: 50px;
+    border: 1px solid lightgray;
+    /*background-color: black;*/
+    background-image: url("/images/wallpaperflare.com_wallpaper.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
 #inside-form {
+    position: relative;
+    top: 25%;
+    left: 10%;
     display: flex;
     flex-direction: column;
     width: 80%;
-    max-width: 600px;
+    max-width: 300px;
     margin-right: 50%;
     background-color: #5f616e;
     border-radius: 10px;
+    align-items: center;
+    border: #1C386E solid 2px;
 }
 
 #inside-form label {
@@ -326,14 +350,21 @@ section {
     margin-top: 5px;
     padding: 10px;
     font-size: 1em;
+    width: 50%;
+    border: none;
+
 }
 
 #inside-form button {
     margin-top: 20px;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 50%;
     background-color: #000;
     color: #fff;
     border: none;
     cursor: pointer;
+    border-radius: 15px;
 }
 
 #inside-form button:hover {
@@ -343,112 +374,75 @@ section {
 #risk-profile,
 #desired-return {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
-#calculation-popup {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 50%;
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+#calculate-popup {
     display: none;
-    flex-direction: column;
-    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
     justify-content: center;
+    align-items: center;
 }
 
-#calculation-popup h2 {
-    margin-bottom: 20px;
+#calculate-popup .popup-content {
+    background-color: #5A75AB;
+    padding: 20px;
+    border: 2px solid #1C386E;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+    cursor: move;
 }
 
-#calculation-popup button {
-    padding: 10px 20px;
-    background-color: #000;
-    color: #fff;
-    border: none;
+#calculate-popup .popup-content h2 {
+    font-size: 2em;
+    color: white;
+}
+
+#calculate-popup .popup-content p {
+    font-size: 1.5em;
+    color: white;
+}
+
+#calculate-popup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 25px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#calculate-popup .close-btn:hover,
+#calculate-popup .close-btn:focus {
+    color: black;
+    text-decoration: none;
     cursor: pointer;
-    font-size: 1em;
-}
-
-#calculation-popup button:hover {
-    background-color: #555;
 }
 
 #analytics-section {
-    background-color: #343845;
+    background-color: white;
     flex-direction: column;
     padding: 20px;
     text-align: center;
 }
+
+
 
 #analytics-section h2 {
     font-size: 2em;
     margin-bottom: 20px;
 }
 
-.slider-container {
-    position: relative;
-    max-width: 80%;
-    margin: 0 auto;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-}
 
-.slider {
-    display: flex;
-    transition: transform 0.6s ease;
-}
-
-.slide {
-    min-width: 33.33%;
-    box-sizing: border-box;
-    flex-direction: column;
-    align-items: center;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-}
-
-.slide img {
-    width: 100%;
-    height: auto;
-}
-
-.slide p {
-    margin-top: 10px;
-    font-size: 1em;
-    text-align: center;
-}
-
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-    background-color: rgba(0,0,0,0.5);
-}
-
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
-}
 
 footer {
     background-color: #343845;

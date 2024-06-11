@@ -47,12 +47,12 @@
         <div class="map-placeholder">
             <img src="images/map-clear.jpg" alt="Map Placeholder" class="map-bg">
             <img src="images/district/Downtown.png" alt="Button Image" class="button-imageP" onclick="togglePopup()">
-            <img src="images/district/Yellow.png" alt="Button Image" class="button-imageY" onclick="togglePopup()">
+<!--            <img src="images/district/Yellow.png" alt="Button Image" class="button-imageY" onclick="togglePopup()">-->
             <img src="images/district/Orange.png" alt="Button Image" class="button-imageO" onclick="togglePopup()">
             <img src="images/district/red.png" alt="Button Image" class="button-imageR" onclick="togglePopup()">
 
         </div>
-        <div id="district-popup" class="popup">
+        <div id="district-popup" class="popup" >
             <div class="popup-content">
                 <span class="close-btn" onclick="closeDistrictPopup()">&times;</span>
                 <h2>District Information</h2>
@@ -64,10 +64,11 @@
 
 
     <section id="inside-section">
-
+    <div class="form-window">
         <form id="inside-form">
-            <h2>Inside</h2>
+            <h2>Calculate of ENS</h2>
             <label for="risk-profile">Risk Profile:</label>
+
             <div id="risk-profile">
                 <label><input type="radio" name="risk" value="low"> Low</label>
                 <label><input type="radio" name="risk" value="medium"> Medium</label>
@@ -75,6 +76,7 @@
             </div>
 
             <label for="desired-return">Desired Return:</label>
+
             <div id="desired-return">
                 <label><input type="radio" name="return" value="low"> Low</label>
                 <label><input type="radio" name="return" value="medium"> Medium</label>
@@ -89,42 +91,21 @@
 
             <button type="button" onclick="calculate()">Calculate</button>
         </form>
-
-        <div id="calculation-popup" class="popup">
-            <h2>Calculations</h2>
-            <button onclick="closePopup()">Close</button>
         </div>
+
+        <div id="calculate-popup" class="popup">
+            <div class="popup-content" id="draggable-popup">
+                <span class="close-btn" onclick="closeCalculatePopup()">&times;</span>
+                <h2>Расчеты</h2>
+                <p id="calculation-result">Результаты будут здесь...</p>
+            </div>
+        </div>
+
     </section>
 
     <section id="analytics-section">
         <h2>Analytics for Q1</h2>
-        <div class="slider-container">
-            <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
-            <div class="slider">
-                <div class="slide">
-                    <img src="images/Dubai_map2.png" alt="Analytics Image 1">
-                    <p>Description for Image 1</p>
-                </div>
-                <div class="slide">
-                    <img src="images/Dubai_map.jpg" alt="Analytics Image 2">
-                    <p>Description for Image 2</p>
-                </div>
-                <div class="slide">
-                    <img src="images/DUBAI%20home.jpg" alt="Analytics Image 3">
-                    <p>Description for Image 3</p>
-                </div>
-                <div class="slide">
-                    <img src="images/DUBAI%20home.jpg" alt="Analytics Image 3">
-                    <p>Description for Image 4</p>
-                </div>
-                <div class="slide">
-                    <img src="images/DUBAI%20home.jpg" alt="Analytics Image 3">
-                    <p>Description for Image 5</p>
-                </div>
-                <!-- Добавьте больше слайдов по мере необходимости -->
-            </div>
-            <button class="next" onclick="plusSlides(1)">&#10095;</button>
-        </div>
+<!--         допилить 3 графика-->
     </section>
 </main>
 
