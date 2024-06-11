@@ -46,11 +46,19 @@
     <section id="map-section">
         <div class="map-placeholder">
             <img src="images/map-clear.jpg" alt="Map Placeholder" class="map-bg">
-            <img src="images/district/Downtown.png" alt="Button Image" class="button-image" onclick="togglePopup()">        </div>
-        <div id="popup" class="popup">
-            <button class="close-button" onclick="togglePopup()">×</button>
-            <h2>Map Details</h2>
-            <p>Details about the map or any other information can go here.</p>
+            <img src="images/district/Downtown.png" alt="Button Image" class="button-imageP" onclick="togglePopup()">
+            <img src="images/district/Yellow.png" alt="Button Image" class="button-imageY" onclick="togglePopup()">
+            <img src="images/district/Orange.png" alt="Button Image" class="button-imageO" onclick="togglePopup()">
+            <img src="images/district/red.png" alt="Button Image" class="button-imageR" onclick="togglePopup()">
+
+        </div>
+        <div id="district-popup" class="popup">
+            <div class="popup-content">
+                <span class="close-btn" onclick="closeDistrictPopup()">&times;</span>
+                <h2>District Information</h2>
+                <p>This is DownTown info</p>
+                <button class="popbut" onclick="downloadDistrictInfo()">Download</button>
+            </div>
         </div>
     </section>
 
